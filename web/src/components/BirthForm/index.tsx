@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useChartStore } from '../store/chartStore';
+import { useChartStore } from '../../store/chartStore';
 import { searchLocation, getAyanamsaList } from '../api/client';
 import type { ChartRequest } from '../../../shared/types/chart';
 
