@@ -6,5 +6,6 @@ geopy
 pydantic
 httpx
 python-dotenv
+pytz
 pytest
 pytest-asyncio
