@@ -98,6 +98,40 @@ npm install
 npx expo start       # Scan QR code with Expo Go
 ```
 
+### Desktop App
+
+**Prerequisites:** Node.js 18+, Python 3.11+, backend Python deps installed
+
+Build a native installer with a single command:
+
+```bash
+bash scripts/build-desktop.sh
+```
+
+This will:
+1. Build the React web app (`web/dist/`)
+2. Copy the React build into `backend/static/` so FastAPI serves it
+3. Bundle the Python backend into a self-contained binary via PyInstaller (`backend/dist/vedic-astro-backend/`)
+4. Package everything into a native installer via Electron + electron-builder (`desktop/dist/`)
+
+**Output by platform:**
+
+| Platform | Installer format |
+|----------|-----------------|
+| Windows  | `.exe` (NSIS)   |
+| macOS    | `.dmg`          |
+| Linux    | `.AppImage` and `.deb` |
+
+**Development mode** (requires backend Python deps installed and `uvicorn` running separately):
+
+```bash
+cd desktop
+npm install
+npm run dev
+```
+
+This compiles the TypeScript Electron shell and opens a window pointing at the FastAPI backend running at `http://localhost:8000`.
+
 ---
 
 ## API Endpoint Reference
