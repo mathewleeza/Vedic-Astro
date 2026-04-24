@@ -1,4 +1,3 @@
-import React from 'react';
 import type { AnalysisResponse, Yoga } from '../../../../shared/types/analysis';
 
 interface Props {

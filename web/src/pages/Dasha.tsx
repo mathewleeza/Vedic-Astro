@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useChartStore } from '../store/chartStore';
 import DashaTimeline from '../components/DashaTimeline';

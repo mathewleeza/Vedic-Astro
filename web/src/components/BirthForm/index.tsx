@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useChartStore } from '../../store/chartStore';
-import { searchLocation, getAyanamsaList } from '../api/client';
-import type { ChartRequest } from '../../../shared/types/chart';
+import { searchLocation, getAyanamsaList } from '../../api/client';
+import type { ChartRequest } from '../../../../shared/types/chart';
 
 interface LocationResult {
   display_name: string;

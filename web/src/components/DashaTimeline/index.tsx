@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import type { DashaEntry } from '../../../../shared/types/chart';
 
 interface Props {

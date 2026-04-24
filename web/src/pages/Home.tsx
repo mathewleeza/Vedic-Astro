@@ -1,4 +1,3 @@
-import React from 'react';
 import BirthForm from '../components/BirthForm';
 
 export default function Home() {
