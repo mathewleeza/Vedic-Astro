@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pyswisseph
+timezonefinder
+geopy
+pydantic
+httpx
+python-dotenv
+pytest
+pytest-asyncio
