@@ -1,0 +1,50 @@
+appId: com.vedicastro.desktop
+productName: Vedic Astro
+copyright: "Copyright © 2024 Vedic Astro"
+
+directories:
+  output: dist
+  buildResources: build
+
+files:
+  - electron/**/*.js
+  - package.json
+
+# Include the PyInstaller-built backend binary as a resource
+extraResources:
+  - from: "../backend/dist/vedic-astro-backend"
+    to: "backend/vedic-astro-backend"
+    filter:
+      - "**/*"
+
+# Windows installer
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+
+# macOS DMG
+mac:
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+  category: public.app-category.productivity
+
+# Linux
+linux:
+  target:
+    - target: AppImage
+      arch:
+        - x64
+    - target: deb
+      arch:
+        - x64
+  category: Utility

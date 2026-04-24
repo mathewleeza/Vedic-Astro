@@ -31,3 +31,13 @@ dist/
 *.tmp
 .env.local
 .env.*.local
+
+# Desktop build artifacts
+backend/static/
+backend/dist/
+backend/build/
+desktop/node_modules/
+desktop/dist/
+desktop/electron/*.js
+desktop/electron/*.js.map
+
