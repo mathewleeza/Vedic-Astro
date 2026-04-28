@@ -1,0 +1,42 @@
+name: Build cryptography wheel (Windows ARM64)
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'cryptography version to build (e.g. 44.0.2; leave blank for latest)'
+        required: false
+        default: ''
+
+jobs:
+  build:
+    runs-on: windows-11-arm
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install build dependencies
+        run: pip install --upgrade pip setuptools wheel cffi
+
+      - name: Build cryptography wheel
+        shell: pwsh
+        run: |
+          $version = "${{ inputs.version }}"
+          $pkg = if ($version -ne "") { "cryptography==$version" } else { "cryptography" }
+          pip wheel $pkg --no-binary cryptography -w dist/
+
+      - name: List built wheels
+        shell: pwsh
+        run: Get-ChildItem dist/
+
+      - name: Upload wheel artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cryptography-windows-arm64
+          path: dist/cryptography-*.whl
